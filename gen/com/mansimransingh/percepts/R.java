@@ -234,14 +234,15 @@ containing a value of this type.
         public static final int alignBounds=0x7f040002;
         public static final int alignMargins=0x7f040003;
         public static final int bottom=0x7f040005;
-        public static final int button1=0x7f040019;
+        public static final int button1=0x7f04001a;
         public static final int center=0x7f04000c;
         public static final int center_horizontal=0x7f04000a;
         public static final int center_vertical=0x7f040008;
         public static final int clip_horizontal=0x7f04000f;
         public static final int clip_vertical=0x7f04000e;
-        public static final int cpPreview=0x7f04001a;
-        public static final int editText1=0x7f040014;
+        public static final int comment_text_field=0x7f040014;
+        public static final int cpPreview=0x7f04001b;
+        public static final int editText1=0x7f040019;
         public static final int end=0x7f040011;
         public static final int fill=0x7f04000d;
         public static final int fill_horizontal=0x7f04000b;
@@ -256,7 +257,7 @@ containing a value of this type.
         public static final int right=0x7f040007;
         public static final int save_button=0x7f040013;
         public static final int start=0x7f040010;
-        public static final int take_photo=0x7f04001b;
+        public static final int take_photo=0x7f04001c;
         public static final int top=0x7f040004;
         public static final int vertical=0x7f040001;
     }

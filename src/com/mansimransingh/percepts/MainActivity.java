@@ -6,6 +6,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -297,10 +300,38 @@ public class MainActivity extends Activity implements CallBackListener {
 			// TODO Auto-generated method stub
 			String response = asyncHttpPost.getResponse();
 			Log.e("RESPONSE",response);
-	    	Intent intent = new Intent(MainActivity.this, EnterComment.class);
-	    	intent.putExtra("IMAGEE",bytes);
-	        
-	        startActivity(intent);
+			// Convert String to json object
+			JSONObject json;
+			try {
+				json = new JSONObject(response);
+				//JSONObject  = json.getJSONObject("success");
+				String success = json.getString("success");
+				if(success.equals("true")){
+					Log.e("SUCCESS","SUCCESS ON JSON ");
+					String targetID = json.getString("targetId");
+					// get value from LL Json Object
+					//String str_value=json.getString("value"); //<< get value here
+			    	Intent intent = new Intent(MainActivity.this, EnterComment.class);
+			    	intent.putExtra("IMAGEE",bytes);
+			    	
+			        intent.putExtra("IMAGEID",targetID);
+			        Log.e("TARGETID",targetID);
+			        startActivity(intent);
+				}
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				Log.e("ERROR","FAILED TO PARSE JSON");
+				Toast
+		          .makeText(MainActivity.this, "Encountered an error. Please restart Percepts", Toast.LENGTH_LONG)
+		          .show();
+			}
+
+			// get LL json object11-10 12:16:04.609: E/RESPONSE(9058): {"success": "True", "author": null, "title": null, "targetId": "188d7966a4cd42e4b713a054faf6e41d", "comments": [], "likes": null}
+
+			
+
+			
 	          
 			
 		}
